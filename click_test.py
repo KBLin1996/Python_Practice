@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 #Reference: https://click.palletsprojects.com/en/5.x/
 
-=======
->>>>>>> 6c0f2ac9e9987c681b3f2f51731e1b7cfea08da5
 import click
 
 @click.command()
