@@ -56,10 +56,19 @@ def pwd(password):
     convert = codecs.getencoder("rot-13") # Reference: https://www.wefearchange.org/2012/01/python-3-porting-fun-redux.html
     click.echo('Encrypting password to %s' % convert(password)[0])
 
+# Range Options
+@click.command()
+@click.option('--count', type=click.IntRange(0, 20, clamp=True)) # An optional clamping mode where a value that falls outside of the range will be clamped. Ex: range of 0~5 return 5 for the value 10, return 0 for the value -1
+@click.option('--digit', type=click.IntRange(0, 10)) # The default mode (non-clamping mode) where a value that falls outside of the range will cause an error
+
+def range_repeat(count, digit):
+    click.echo(str(digit) * count)
+
 if __name__ == '__main__':
     # boolean()
     # switch()
     # counting()
     # choice()
     # hello()
-    pwd()
+    # pwd()
+    range_repeat()
