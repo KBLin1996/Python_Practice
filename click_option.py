@@ -4,7 +4,8 @@ import sys
 import click
 import codecs # For using 'rot-13'
 
-# Click Boolean Flags
+
+# 1. Click Boolean Flags
 
 @click.command()
 # Boolean flags are options that can be enabled or disabled. This can be accomplished by defining two flags in one go separated by a slash (/) for enabling or disabling the option.
@@ -17,7 +18,7 @@ def boolean(shout):
     click.echo(rv)
 
 
-# Click Choice
+# 2. Click Choice
 
 # To notice user to type correct options (If not, pop an error message and tell user to type correct options)
 @click.command()
@@ -27,7 +28,7 @@ def choose(gender):
     click.echo('gender: %s' % gender)
 
 
-# Feature Switches
+# 3. Feature Switches
 
 @click.command()
 # Note that by providing the flag_value parameter, Click will implicitly set is_flag=True.
@@ -38,7 +39,7 @@ def switch(transformation):
     click.echo(getattr(sys.platform, transformation)())
 
 
-# Counting
+# 4. Counting
 
 @click.command()
 @click.option('-c', '--verbose', count=True) # count=True means it's initialized to 0
@@ -47,7 +48,7 @@ def counting(verbose):
     click.echo('Verbosity: %s' % verbose)
 
 
-# Choice Options
+# 5. Choice Options
 
 @click.command()
 # Sometimes, you want to have a parameter be a choice of a list[] of values. In that case you can use Choice type. It can be instantiated with a list of valid values.
@@ -57,7 +58,7 @@ def choice(type):
     click.echo(click.style('%s is your choice !' % type, fg='red'))
 
 
-# Prompt
+# 6. Prompt
 
 @click.command()
 # In some cases, you want parameters that can be provided from the command line, but if not provided, ask for user input instead.
@@ -67,7 +68,7 @@ def hello(name):
     click.echo('Hello %s!' % name)
 
 
-# Password Prompts
+# 7. Password Prompts
 
 @click.command()
 # Click also supports hidden prompts and asking for confirmation.
@@ -78,7 +79,7 @@ def pwd(password):
     click.echo('Encrypting password to %s' % convert(password)[0])
 
 
-# Range Options
+# 8. Range Options
 
 @click.command()
 @click.option('--count', type=click.IntRange(0, 20, clamp=True)) # An optional clamping mode where a value that falls outside of the range will be clamped. Ex: range of 0~5 return 5 for the value 10, return 0 for the value -1
@@ -86,6 +87,7 @@ def pwd(password):
 
 def range_repeat(count, digit):
     click.echo(str(digit) * count)
+
 
 if __name__ == '__main__':
     # boolean()
