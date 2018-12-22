@@ -17,6 +17,16 @@ def boolean(shout):
     click.echo(rv)
 
 
+# Click Choice
+
+# To notice user to type correct options (If not, pop an error message and tell user to type correct options)
+@click.command()
+@click.option('--gender', type=click.Choice(['man', 'woman'])) # Options
+
+def choose(gender):
+    click.echo('gender: %s' % gender)
+
+
 # Feature Switches
 
 @click.command()
@@ -79,9 +89,10 @@ def range_repeat(count, digit):
 
 if __name__ == '__main__':
     # boolean()
+    choose()
     # switch()
     # counting()
     # choice()
     # hello()
     # pwd()
-    range_repeat()
+    # range_repeat()
