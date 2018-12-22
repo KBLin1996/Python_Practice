@@ -3,7 +3,7 @@
 import click
 
 @click.command()
-@click.option('--count', default=1, help='Number of greetings.')
+@click.option('--count', default=1, help='Number of greetings.') # What writes in help will be represented in --help
 @click.option('--name', prompt='Your name', help='The person to greet.')
 
 def hello(count, name):
