@@ -37,3 +37,14 @@ print(add(1)(2))  # output 3
 max = lambda m, n: m if m > n else n
 print(max(10, 3))  # output 10
 '''
+
+# zip
+'''
+>>> a = [1, 2, 3] 
+>>> b = [4, 5 ,6] 
+>>> c = [4, 5, 6, 7, 8] 
+>>> zipped = zip(a, b) # zipped = [(1, 4), (2, 5), (3, 6)]
+
+>>> zip(a, c) # Result = [(1, 4), (2, 5), (3 ,6)] 
+>>> zip(*zipped) # *zipped -> unzipped， return a two-dimensional array [(1, 2, 3), (4, 5, 6)]
+'''
